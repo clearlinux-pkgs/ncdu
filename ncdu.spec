@@ -4,7 +4,7 @@
 #
 Name     : ncdu
 Version  : 1.13
-Release  : 2
+Release  : 3
 URL      : https://dev.yorhel.nl/download/ncdu-1.13.tar.gz
 Source0  : https://dev.yorhel.nl/download/ncdu-1.13.tar.gz
 Summary  : No detailed summary available
@@ -58,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534440661
+export SOURCE_DATE_EPOCH=1534440922
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -70,7 +70,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1534440661
+export SOURCE_DATE_EPOCH=1534440922
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ncdu
 cp COPYING %{buildroot}/usr/share/doc/ncdu/COPYING
