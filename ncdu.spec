@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x62394C698C2739FA (git@yorhel.nl)
 #
 Name     : ncdu
-Version  : 1.14.1
-Release  : 5
-URL      : https://dev.yorhel.nl/download/ncdu-1.14.1.tar.gz
-Source0  : https://dev.yorhel.nl/download/ncdu-1.14.1.tar.gz
-Source1 : https://dev.yorhel.nl/download/ncdu-1.14.1.tar.gz.asc
+Version  : 1.14.2
+Release  : 6
+URL      : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz
+Source0  : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz
+Source1  : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz.asc
 Summary  : Disk usage analyzer with an ncurses interface
 Group    : Development/Tools
 License  : MIT
@@ -20,7 +20,7 @@ BuildRequires : pkgconfig(ncurses)
 BuildRequires : pkgconfig(ncursesw)
 
 %description
-ncdu 1.14.1
+ncdu 1.14.2
 ===========
 DESCRIPTION
 ncdu (NCurses Disk Usage) is a curses-based version of
@@ -53,14 +53,16 @@ man components for the ncdu package.
 
 
 %prep
-%setup -q -n ncdu-1.14.1
+%setup -q -n ncdu-1.14.2
+cd %{_builddir}/ncdu-1.14.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565013548
+export SOURCE_DATE_EPOCH=1581607725
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -80,10 +82,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1565013548
+export SOURCE_DATE_EPOCH=1581607725
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ncdu
-cp COPYING %{buildroot}/usr/share/package-licenses/ncdu/COPYING
+cp %{_builddir}/ncdu-1.14.2/COPYING %{buildroot}/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
 %make_install
 
 %files
@@ -95,7 +97,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/ncdu/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/ncdu/COPYING
+/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
 
 %files man
 %defattr(0644,root,root,0755)
