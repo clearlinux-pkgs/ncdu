@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x62394C698C2739FA (git@yorhel.nl)
 #
 Name     : ncdu
-Version  : 1.14.2
-Release  : 6
-URL      : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz
-Source0  : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz
-Source1  : https://dev.yorhel.nl/download/ncdu-1.14.2.tar.gz.asc
-Summary  : Disk usage analyzer with an ncurses interface
+Version  : 1.15
+Release  : 7
+URL      : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz
+Source0  : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz
+Source1  : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz.asc
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 Requires: ncdu-bin = %{version}-%{release}
@@ -20,8 +20,8 @@ BuildRequires : pkgconfig(ncurses)
 BuildRequires : pkgconfig(ncursesw)
 
 %description
-ncdu 1.14.2
-===========
+ncdu 1.15
+=========
 DESCRIPTION
 ncdu (NCurses Disk Usage) is a curses-based version of
 the well-known 'du', and provides a fast way to see what
@@ -53,23 +53,22 @@ man components for the ncdu package.
 
 
 %prep
-%setup -q -n ncdu-1.14.2
-cd %{_builddir}/ncdu-1.14.2
+%setup -q -n ncdu-1.15
+cd %{_builddir}/ncdu-1.15
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581607725
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1591112015
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -82,10 +81,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1581607725
+export SOURCE_DATE_EPOCH=1591112015
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ncdu
-cp %{_builddir}/ncdu-1.14.2/COPYING %{buildroot}/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
+cp %{_builddir}/ncdu-1.15/COPYING %{buildroot}/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
 %make_install
 
 %files
