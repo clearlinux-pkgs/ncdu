@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x62394C698C2739FA (git@yorhel.nl)
 #
 Name     : ncdu
-Version  : 1.15
-Release  : 7
-URL      : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz
-Source0  : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz
-Source1  : https://dev.yorhel.nl/download/ncdu-1.15.tar.gz.asc
+Version  : 1.15.1
+Release  : 8
+URL      : https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz
+Source0  : https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz
+Source1  : https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -20,8 +20,8 @@ BuildRequires : pkgconfig(ncurses)
 BuildRequires : pkgconfig(ncursesw)
 
 %description
-ncdu 1.15
-=========
+ncdu 1.15.1
+===========
 DESCRIPTION
 ncdu (NCurses Disk Usage) is a curses-based version of
 the well-known 'du', and provides a fast way to see what
@@ -53,15 +53,15 @@ man components for the ncdu package.
 
 
 %prep
-%setup -q -n ncdu-1.15
-cd %{_builddir}/ncdu-1.15
+%setup -q -n ncdu-1.15.1
+cd %{_builddir}/ncdu-1.15.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591112015
+export SOURCE_DATE_EPOCH=1591910655
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -81,10 +81,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1591112015
+export SOURCE_DATE_EPOCH=1591910655
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ncdu
-cp %{_builddir}/ncdu-1.15/COPYING %{buildroot}/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
+cp %{_builddir}/ncdu-1.15.1/COPYING %{buildroot}/usr/share/package-licenses/ncdu/afd66b664a05f3897b6c8de6c1cdc78d801d0a6a
 %make_install
 
 %files
