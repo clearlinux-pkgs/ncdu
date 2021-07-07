@@ -1,5 +1,5 @@
-Configure miss: sys/attr.h usability
-Configure miss: sys/attr.h presence
-Configure miss: sys/attr.h
 Configure miss: getattrlist
+Configure miss: sys/attr.h
+Configure miss: sys/attr.h presence
+Configure miss: sys/attr.h usability
 Configure miss: whether ATTR_CMNEXT_NOFIRMLINKPATH is declared
